@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: merkadito-karma
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_MODEL
+        value: gpt-4o-mini
+      - key: AI_BASE_URL
+        value: https://api.openai.com/v1
+      - key: AI_SYSTEM_PROMPT
+        sync: false
+      - key: AI_TEMPERATURE
+        value: "0.7"
